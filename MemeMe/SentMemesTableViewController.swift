@@ -91,12 +91,6 @@ class SentMemesTableViewController:UITableViewController, UITableViewDelegate, U
     }
 }
 
-    
-    
-    
-    
-    
-    
 /**
 =======
 >>>>>>> 99d2aaeadac2cb0cb87a868095cd49f90af62225
