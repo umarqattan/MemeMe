@@ -7,25 +7,29 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>059A0A6C-4EE4-4769-ACC8-15C67860F8A9</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>MemeMe</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3377A14AABFB8BF84B72EA683354A7C77EB9323C</key>
-		<string>https://github.com/umarqattan/iOS-Apps.git</string>
+		<string>https://github.com/umarqattan/MemeMe.git</string>
+		<key>D01AF5B309AFDA982367DD3CA5D768A0EFB0CBD9</key>
+		<string>https://github.com/umarqattan/MemeMe.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MemeMe/MemeMe.xcodeproj/project.xcworkspace</string>
+	<string>MemeMe.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3377A14AABFB8BF84B72EA683354A7C77EB9323C</key>
 		<string>../../..</string>
+		<key>D01AF5B309AFDA982367DD3CA5D768A0EFB0CBD9</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/umarqattan/iOS-Apps.git</string>
+	<string>https://github.com/umarqattan/MemeMe.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3377A14AABFB8BF84B72EA683354A7C77EB9323C</string>
+	<string>D01AF5B309AFDA982367DD3CA5D768A0EFB0CBD9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3377A14AABFB8BF84B72EA683354A7C77EB9323C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iOS%20Apps</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D01AF5B309AFDA982367DD3CA5D768A0EFB0CBD9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MemeMe</string>
 		</dict>
 	</array>
 </dict>

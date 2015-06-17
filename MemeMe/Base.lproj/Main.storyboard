@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cwf-aA-ILx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -48,6 +49,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SentMemesTableViewController" id="KeC-ie-LZa" customClass="SentMemesTableViewController" customModule="MemeMe" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" id="gAj-Zo-jXo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -117,13 +119,13 @@
                                             <exclude reference="vGC-Cl-Dt0"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="9ig-lh-SLe"/>
-                                            <exclude reference="U0I-k8-6aK"/>
-                                            <exclude reference="x0F-KB-ccg"/>
                                             <exclude reference="J0Z-Uq-fO4"/>
                                             <exclude reference="bdM-8M-u7J"/>
                                             <exclude reference="o9P-I6-vaQ"/>
                                             <exclude reference="xX3-fs-7TN"/>
+                                            <exclude reference="9ig-lh-SLe"/>
+                                            <exclude reference="U0I-k8-6aK"/>
+                                            <exclude reference="x0F-KB-ccg"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -132,13 +134,13 @@
                                             <include reference="vGC-Cl-Dt0"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="9ig-lh-SLe"/>
-                                            <include reference="U0I-k8-6aK"/>
-                                            <include reference="x0F-KB-ccg"/>
                                             <include reference="J0Z-Uq-fO4"/>
                                             <include reference="bdM-8M-u7J"/>
                                             <include reference="o9P-I6-vaQ"/>
                                             <exclude reference="xX3-fs-7TN"/>
+                                            <include reference="9ig-lh-SLe"/>
+                                            <include reference="U0I-k8-6aK"/>
+                                            <include reference="x0F-KB-ccg"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -189,6 +191,7 @@
             <objects>
                 <collectionViewController storyboardIdentifier="SentMemesCollectionViewController" id="Yei-AU-D2D" customClass="SentMemesCollectionViewController" customModule="MemeMe" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XET-c2-1lN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,6 +259,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ApE-uQ-11V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jmt-XT-56a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IrV-lK-iWh">
@@ -303,7 +307,9 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2q-74-hxA">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="knl-lc-lCH"/>
+                                    <constraint firstAttribute="height" constant="30" id="knl-lc-lCH">
+                                        <variation key="widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -321,7 +327,9 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xlb-Mw-9Ni">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="s27-Sa-LAf"/>
+                                    <constraint firstAttribute="height" constant="30" id="s27-Sa-LAf">
+                                        <variation key="widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -388,7 +396,9 @@
                             <constraint firstItem="9dJ-PF-77h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="NFf-pd-3Od"/>
                             <constraint firstItem="Xlb-Mw-9Ni" firstAttribute="leading" secondItem="V2q-74-hxA" secondAttribute="leading" id="VlN-tW-LqC"/>
                             <constraint firstItem="Xlb-Mw-9Ni" firstAttribute="centerX" secondItem="9dJ-PF-77h" secondAttribute="centerX" id="Ytf-gC-2qj"/>
-                            <constraint firstItem="9dJ-PF-77h" firstAttribute="top" secondItem="Xlb-Mw-9Ni" secondAttribute="bottom" constant="63" id="ZD3-mu-4oR"/>
+                            <constraint firstItem="9dJ-PF-77h" firstAttribute="top" secondItem="Xlb-Mw-9Ni" secondAttribute="bottom" constant="63" id="ZD3-mu-4oR">
+                                <variation key="widthClass=compact" constant="48"/>
+                            </constraint>
                             <constraint firstItem="dJ9-LR-sNQ" firstAttribute="trailing" secondItem="9dJ-PF-77h" secondAttribute="trailing" id="dVR-Vy-OXQ"/>
                             <constraint firstItem="ofA-vP-B1q" firstAttribute="trailing" secondItem="dJ9-LR-sNQ" secondAttribute="trailing" id="sre-V0-V3t"/>
                             <constraint firstItem="Xlb-Mw-9Ni" firstAttribute="trailing" secondItem="V2q-74-hxA" secondAttribute="trailing" id="uGp-Xu-EjL"/>
@@ -403,13 +413,6 @@
                                 <exclude reference="dJ9-LR-sNQ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="2Ri-N2-9HQ"/>
-                                <exclude reference="GLa-uA-5YO"/>
-                                <exclude reference="dVR-Vy-OXQ"/>
-                                <exclude reference="0UA-cw-Rup"/>
-                                <exclude reference="3ur-3O-1Nx"/>
-                                <exclude reference="BZL-Kq-Bwv"/>
-                                <exclude reference="sre-V0-V3t"/>
                                 <exclude reference="29T-rt-OwT"/>
                                 <exclude reference="xLN-a7-As9"/>
                                 <exclude reference="VlN-tW-LqC"/>
@@ -419,6 +422,13 @@
                                 <exclude reference="GSV-S7-ye0"/>
                                 <exclude reference="NFf-pd-3Od"/>
                                 <exclude reference="ZD3-mu-4oR"/>
+                                <exclude reference="2Ri-N2-9HQ"/>
+                                <exclude reference="GLa-uA-5YO"/>
+                                <exclude reference="dVR-Vy-OXQ"/>
+                                <exclude reference="0UA-cw-Rup"/>
+                                <exclude reference="3ur-3O-1Nx"/>
+                                <exclude reference="BZL-Kq-Bwv"/>
+                                <exclude reference="sre-V0-V3t"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -430,13 +440,6 @@
                                 <include reference="dJ9-LR-sNQ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="2Ri-N2-9HQ"/>
-                                <include reference="GLa-uA-5YO"/>
-                                <include reference="dVR-Vy-OXQ"/>
-                                <include reference="0UA-cw-Rup"/>
-                                <include reference="3ur-3O-1Nx"/>
-                                <include reference="BZL-Kq-Bwv"/>
-                                <include reference="sre-V0-V3t"/>
                                 <include reference="29T-rt-OwT"/>
                                 <include reference="xLN-a7-As9"/>
                                 <include reference="VlN-tW-LqC"/>
@@ -446,6 +449,13 @@
                                 <include reference="GSV-S7-ye0"/>
                                 <include reference="NFf-pd-3Od"/>
                                 <include reference="ZD3-mu-4oR"/>
+                                <include reference="2Ri-N2-9HQ"/>
+                                <include reference="GLa-uA-5YO"/>
+                                <include reference="dVR-Vy-OXQ"/>
+                                <include reference="0UA-cw-Rup"/>
+                                <include reference="3ur-3O-1Nx"/>
+                                <include reference="BZL-Kq-Bwv"/>
+                                <include reference="sre-V0-V3t"/>
                             </mask>
                         </variation>
                     </view>
@@ -469,6 +479,6 @@
         <image name="Overview Pages 4 Filled-50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CVG-FP-m3q"/>
+        <segue reference="LFV-iK-KaF"/>
     </inferredMetricsTieBreakers>
 </document>

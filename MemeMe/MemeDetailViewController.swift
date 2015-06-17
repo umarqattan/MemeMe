@@ -13,16 +13,19 @@ import UIKit
 class MemeDetailViewController:UIViewController
 {
     @IBOutlet weak var memeDetailImageView: UIImageView!
-    var meme:Meme!
+    var meme: Meme!
     
+    /**
+        Simply displays the imageView object with the memedImage
+        passed from either the SentMemesTableViewController or 
+        the SentMemesCollectionViewController.
+    */
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        if let image = self.meme.memedImage
+        if let image = meme.memedImage
         {
-            self.memeDetailImageView.image = image
+            memeDetailImageView.image = image
         }
     }
-    
-    
 }

@@ -13,54 +13,61 @@ import UIKit
 class SentMemesTableViewController:UITableViewController, UITableViewDelegate, UITableViewDataSource
 {
     var memes:[Meme] = []
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.Default
-        
-        self.memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
+    /**
+        Whenever the view controller appears, the memes
+        array grows.
+    */
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        
-        self.memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-        self.tableView.reloadData()
-        
+        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        tableView.reloadData()
     }
     
-    
+    /** Tells the delegate that produces the tableView
+        how many memes are in the shared model object:
+        memes:[Meme]
+    */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return count(self.memes)
+    
+        return count(memes)
     }
     
+    /**
+        Returns a custom UITableViewCell with a memedImage imageView object
+        and a UILabel with its top and bottom text.
+    */
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var cell = tableView.dequeueReusableCellWithIdentifier("SentMemesTableViewCell") as! SentMemesTableViewCell
-        /**
-            TODO: insert code to add details to the SentMemesTableViewCell object
-        **/
-        var meme                 = self.memes[indexPath.row]
-        cell.memeLabel?.text     = meme.top + "..." + meme.bottom
+        var meme = memes[indexPath.row]
+        cell.memeLabel?.text = meme.top + "..." + meme.bottom
         if let image = meme.memedImage
         {
             cell.memeImageView?.image = image
         }
         return cell
     }
+    
+    /**
+        Whenever a row is selected, a MemeDetailViewController is pushed
+        onto the navigationController stack.
+    */
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        /**
-            TODO: insert code to initialize a MemeDetailViewController to view the
-                  cell object.
-        **/
         let memeViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        memeViewController.meme = self.memes[indexPath.row]
-        self.navigationController?.pushViewController(memeViewController, animated: true)
-        
+        memeViewController.meme = memes[indexPath.row]
+        navigationController?.pushViewController(memeViewController, animated: true)
     }
     
     

@@ -11,29 +11,40 @@ import UIKit
 
 class SentMemesCollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate
 {
-    var memes:[Meme] = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    var memes:[Meme] = []
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
     }
     
+    /**
+    Whenever the view controller appears, the memes
+    array grows.
+    */
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        
-        self.memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
-        self.collectionView?.reloadData()
+        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+        collectionView?.reloadData()
     }
-    
+
+    /** Tells the delegate that produces the tableView
+    how many memes are in the shared model object:
+    memes:[Meme]
+    */
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return count(self.memes)
+        return count(memes)
     }
     
+    /**
+    Returns a custom UICollectionViewCell with a memedImage 
+    imageView object with its top and bottom text embedded.
+    */
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("SentMemesCollectionViewCell", forIndexPath: indexPath) as! SentMemesCollectionViewCell
-        var meme = self.memes[indexPath.row]
+        var meme = memes[indexPath.row]
         if let image = meme.memedImage
         {
             cell.sentMemesImageView?.image = image
@@ -41,14 +52,14 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
         return cell
     }
     
+    /**
+    Whenever a row is selected, a MemeDetailViewController is pushed
+    onto the navigationController stack.
+    */
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
         let memeViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        memeViewController.meme = self.memes[indexPath.row]
-        self.navigationController?.pushViewController(memeViewController, animated: true)
+        memeViewController.meme = memes[indexPath.row]
+        navigationController?.pushViewController(memeViewController, animated: true)
     }
-    
-    
-    
-    
 }
