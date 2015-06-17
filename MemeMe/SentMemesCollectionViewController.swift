@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class SentMemesCollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate
-{
-    var memes:[Meme] = []
+class SentMemesCollectionViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
@@ -24,7 +24,6 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
         collectionView?.reloadData()
     }
 
@@ -34,7 +33,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     */
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        return count(memes)
+        return count((UIApplication.sharedApplication().delegate as! AppDelegate).memes)
     }
     
     /**
@@ -44,7 +43,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier("SentMemesCollectionViewCell", forIndexPath: indexPath) as! SentMemesCollectionViewCell
-        var meme = memes[indexPath.row]
+        var meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         if let image = meme.memedImage
         {
             cell.sentMemesImageView?.image = image
@@ -59,7 +58,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UICollectio
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
         let memeViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        memeViewController.meme = memes[indexPath.row]
+        memeViewController.meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         navigationController?.pushViewController(memeViewController, animated: true)
     }
 }

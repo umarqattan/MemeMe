@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SentMemesCollectionViewCell: UICollectionViewCell
-{
+class SentMemesCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var sentMemesImageView: UIImageView!
 }

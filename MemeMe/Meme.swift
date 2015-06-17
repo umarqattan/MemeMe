@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-struct Meme
-{
+struct Meme {
+    
     var top:           String!
     var bottom:        String!
     var originalImage:UIImage!

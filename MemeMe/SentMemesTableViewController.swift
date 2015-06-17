@@ -10,16 +10,13 @@ import Foundation
 import UIKit
 
 
-class SentMemesTableViewController:UITableViewController, UITableViewDelegate, UITableViewDataSource
-{
-    var memes:[Meme] = []
+class SentMemesTableViewController:UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         var nav = self.navigationController?.navigationBar
         nav?.barStyle = UIBarStyle.Default
-        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
     /**
@@ -29,18 +26,17 @@ class SentMemesTableViewController:UITableViewController, UITableViewDelegate, U
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
-        memes = (UIApplication.sharedApplication().delegate as! AppDelegate).memes
         tableView.reloadData()
     }
     
-    /** Tells the delegate that produces the tableView
+    /** 
+        Tells the delegate that produces the tableView
         how many memes are in the shared model object:
         memes:[Meme]
     */
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-    
-        return count(memes)
+        return count((UIApplication.sharedApplication().delegate as! AppDelegate).memes)
     }
     
     /**
@@ -50,8 +46,9 @@ class SentMemesTableViewController:UITableViewController, UITableViewDelegate, U
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var cell = tableView.dequeueReusableCellWithIdentifier("SentMemesTableViewCell") as! SentMemesTableViewCell
-        var meme = memes[indexPath.row]
+        var meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         cell.memeLabel?.text = meme.top + "..." + meme.bottom
+        
         if let image = meme.memedImage
         {
             cell.memeImageView?.image = image
@@ -66,8 +63,28 @@ class SentMemesTableViewController:UITableViewController, UITableViewDelegate, U
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         let memeViewController = storyboard?.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
-        memeViewController.meme = memes[indexPath.row]
+        memeViewController.meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         navigationController?.pushViewController(memeViewController, animated: true)
+    }
+    
+    /**
+        Enables the tableView to be edited (e.g. a left swipe on any
+        particular row allows the user to delete it).
+    */
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    /**
+        Deletes the row from the tableView and from the shared model
+        object in the AppDelegate.swift file.
+    */
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            println("the row to be deleted is \(indexPath.row)\n")
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+        }
     }
     
     
