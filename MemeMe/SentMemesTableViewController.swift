@@ -66,6 +66,7 @@ class SentMemesTableViewController:UITableViewController, UITableViewDelegate, U
         memeViewController.meme = (UIApplication.sharedApplication().delegate as! AppDelegate).memes[indexPath.row]
         navigationController?.pushViewController(memeViewController, animated: true)
     }
+<<<<<<< HEAD
     
     /**
         Enables the tableView to be edited (e.g. a left swipe on any
@@ -95,4 +96,6 @@ class SentMemesTableViewController:UITableViewController, UITableViewDelegate, U
     
     
     
+=======
+>>>>>>> 99d2aaeadac2cb0cb87a868095cd49f90af62225
 }
